@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/secback"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".IntroActivity">
+
+    <TextView
+        android:id="@+id/tv_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Pepper"
+        android:textColor="#5A5B5D"
+        android:textSize="50sp"
+        android:textStyle="bold"/>
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="150dp"
+    android:contentDescription="this is an image"
+    android:src="@drawable/carimg"/>
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_marginStart="80dp"-->
+<!--        android:layout_marginEnd="70dp"-->
+<!--        android:gravity="center"-->
+<!--        android:lineSpacingExtra="5dp"-->
+<!--        android:text="Amazing deals on hotals and explore the delicious food in your locality "-->
+<!--        android:textColor="@color/ptc"-->
+<!--        android:textSize="20sp"/>-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:lineSpacingExtra="5dp"
+        android:textStyle="bold"
+        android:text="Login to get exiting offers on hotel , food and travel!"
+        android:textColor="#585959"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_sign_in_intro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/shape_button_rounded"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:text="Sign In"
+        android:textColor="@color/white"
+        android:textSize="15sp"/>
+
+    <Button
+        android:id="@+id/btn_sign_up_intro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/whte_border_shape_rounded"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Sign Up"
+        android:textColor="@color/cp"
+        android:textSize="15sp"/>
+
+</LinearLayout>
