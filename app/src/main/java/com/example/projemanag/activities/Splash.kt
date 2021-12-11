@@ -11,6 +11,7 @@ import android.os.Handler
 import android.view.WindowInsets
 import android.view.WindowManager
 import com.example.projemanag.R
+import com.example.projemanag.firebase.FirestoreClass
 
 class Splash : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +28,13 @@ class Splash : AppCompatActivity() {
         }
 //        val typeface: Typeface.createFromAsset(assets,"GreatVibes-Regular.ttf")
         Handler().postDelayed({
-            startActivity(Intent(this, IntroActivity::class.java))
+            var currentUserID=FirestoreClass().getCurrentUserId()
+            if(currentUserID.isNotEmpty()){
+                startActivity(Intent(this,MainActivity::class.java))
+            }else{
+                startActivity(Intent(this,IntroActivity::class.java))
+            }
+//            startActivity(Intent(this, IntroActivity::class.java))
             finish()
         },2500)
     }

@@ -9,7 +9,7 @@
     tools:context=".activities.SignInActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_sign_up_activity"
+        android:id="@+id/toolbar_sign_in_activity"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
@@ -64,7 +64,7 @@
                     android:layout_marginStart="40sp"
                     android:layout_marginEnd="40sp">
                     <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/et_email"
+                        android:id="@+id/et_email_signin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Email"
@@ -80,7 +80,7 @@
                     android:layout_marginStart="40sp"
                     android:layout_marginEnd="40sp">
                     <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/et_password"
+                        android:id="@+id/et_password_signin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Password"
