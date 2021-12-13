@@ -1,6 +1,9 @@
 package com.example.projemanag.firebase
 
+import android.app.Activity
 import android.util.Log
+import com.example.projemanag.activities.MainActivity
+import com.example.projemanag.activities.MyProfileActivity
 import com.example.projemanag.activities.SignInActivity
 import com.example.projemanag.activities.SignUpActivity
 import com.example.projemanag.model.User
@@ -25,13 +28,25 @@ class FirestoreClass {
             }
     }
 
-    fun signInUser(activity: SignInActivity){
+    fun loadUserData(activity: Activity){
         mFireStore.collection("Users")
             .document(getCurrentUserId())
             .get()
             .addOnSuccessListener{ document ->
                val loggedInUser =document.toObject(User::class.java)!!
-                activity.signInSuccess(loggedInUser)
+               when(activity){
+                   is SignInActivity -> {
+                       activity.signInSuccess(loggedInUser)
+                   }
+                   is MainActivity ->{
+                       activity.updateNavigationUserDetails(loggedInUser)
+                   }
+                   is MyProfileActivity ->{
+                       activity.setUserDataInUI(loggedInUser)
+                   }
+               }
+
+
             }.addOnFailureListener {
                     e ->
                 Log.e("Sign in user", "Error writing document",e)

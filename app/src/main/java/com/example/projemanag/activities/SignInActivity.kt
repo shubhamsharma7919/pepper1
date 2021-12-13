@@ -10,6 +10,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import com.example.projemanag.R
+import com.example.projemanag.firebase.FirestoreClass
 import com.example.projemanag.model.User
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_in.*
@@ -64,12 +65,13 @@ class SignInActivity : BaseActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
-                        Log.d("Sign in", "signInWithEmail:success")
-                        val user = auth.currentUser
-                      startActivity(Intent(this, MainActivity::class.java))
+//                        Log.d("Sign in", "signInWithEmail:success")
+//                        val user = auth.currentUser
+//                      startActivity(Intent(this, MainActivity::class.java))
+                        FirestoreClass().loadUserData(this)
                     } else {
                         // If sign in fails, display a message to the user.
-                        Log.w("Sign in", "signInWithEmail:failure", task.exception)
+//                        Log.w("Sign in", "signInWithEmail:failure", task.exception)
                         Toast.makeText(baseContext, "Authentication failed.",
                             Toast.LENGTH_SHORT).show()
 

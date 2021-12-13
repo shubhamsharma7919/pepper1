@@ -1,16 +1,18 @@
 package com.example.projemanag.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.view.GravityCompat
+import com.bumptech.glide.Glide
 import com.example.projemanag.R
+import com.example.projemanag.firebase.FirestoreClass
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +20,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         setContentView(R.layout.activity_main)
         SetUpActionBar()
         nav_view.setNavigationItemSelectedListener(this)
+
+        FirestoreClass().loadUserData(this)
     }
 
     private fun SetUpActionBar() {
@@ -43,11 +47,21 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             doubleBackToExit()
         }
     }
+    fun updateNavigationUserDetails(user: com.example.projemanag.model.User){
+        Glide
+            .with(this)
+            .load(user.image)
+            .centerCrop()
+            .placeholder(R.drawable.ic_user_place_holder)
+            .into(nav_user_image)
+      tv_username.text=user.name
+
+    }
 
     override fun onNavigationItemSelected(item: MenuItem):Boolean {
         when(item.itemId) {
             R.id.nav_my_profile -> {
-                Toast.makeText(this@MainActivity, "My Profile", Toast.LENGTH_SHORT).show()
+               startActivity(Intent(this, MyProfileActivity::class.java))
             }
             R.id.nav_sign_out ->{
                 FirebaseAuth.getInstance().signOut()
