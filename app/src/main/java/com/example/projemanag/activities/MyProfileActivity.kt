@@ -8,6 +8,8 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
+import android.webkit.MimeTypeMap
 
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -16,6 +18,10 @@ import com.bumptech.glide.Glide
 import com.example.projemanag.R
 import com.example.projemanag.firebase.FirestoreClass
 import com.example.projemanag.model.User
+import com.example.projemanag.utils.Constants
+import com.google.common.io.Files.getFileExtension
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_my_profile.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.nav_header_main.*
@@ -30,6 +36,8 @@ class MyProfileActivity : BaseActivity() {
     }
 
     private var mSelectedImageFileUri: Uri?=null
+    private lateinit var mUserDetails: User
+    private var mProfileImageURL : String =""
 
     private fun showImageChooser(){
         var galleryIntent=Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
@@ -68,6 +76,14 @@ class MyProfileActivity : BaseActivity() {
                 )
             }
         }
+        btn_update.setOnClickListener {
+            if(mSelectedImageFileUri!=null){
+                uploadUserImage()
+            }else{
+                showProgressDialog("Please Wait")
+                updateUserProfileData()
+            }
+        }
     }
 
     override fun onRequestPermissionsResult(
@@ -98,6 +114,7 @@ class MyProfileActivity : BaseActivity() {
 
     }
     fun setUserDataInUI(user: User){
+        mUserDetails = user
         Glide
             .with(this@MyProfileActivity)
             .load(user.image)
@@ -112,4 +129,55 @@ class MyProfileActivity : BaseActivity() {
         }
     }
 
+   private fun updateUserProfileData(){
+        val userHashMap = HashMap<String , Any>()
+
+        if(mProfileImageURL.isNotEmpty() && mProfileImageURL!=mUserDetails.image){
+            userHashMap["image"]=mProfileImageURL
+        }
+        if(et_name.text.toString() != mUserDetails.name){
+            userHashMap["name"]=et_name.text.toString()
+        }
+        if(et_mobile.text.toString() != mUserDetails.mobile.toString()){
+            userHashMap["mobile"]=et_mobile.text.toString().toLong()
+        }
+        FirestoreClass().updateUserProfileData(this,userHashMap)
+    }
+
+    private fun uploadUserImage() {
+        showProgressDialog("Please Wait")
+        if (mSelectedImageFileUri != null) {
+            val sRef: StorageReference = FirebaseStorage.getInstance().reference.child(
+                "USER_IMAGE" + System.currentTimeMillis() + "." + getFileExtension(
+                    mSelectedImageFileUri
+                )
+            )
+            sRef.putFile(mSelectedImageFileUri!!).addOnSuccessListener { taskSnapshot ->
+                Log.i(
+                    "Firebase Image URL",
+                    taskSnapshot.metadata!!.reference!!.downloadUrl.toString()
+                )
+                taskSnapshot.metadata!!.reference!!.downloadUrl.addOnSuccessListener {
+                    uri->
+                    Log.i("Downloadable Image URL",uri.toString())
+                    mProfileImageURL = uri.toString()
+
+                 updateUserProfileData()
+
+                }
+            }.addOnFailureListener{
+                exception->
+                Toast.makeText(this@MyProfileActivity,exception.message,Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+        private fun getFileExtension(uri: Uri?): String? {
+            return MimeTypeMap.getSingleton()
+                .getExtensionFromMimeType(contentResolver.getType(uri!!))
+        }
+       fun profileUpdateSuccess(){
+           setResult(Activity.RESULT_OK)
+           finish()
+       }
 }

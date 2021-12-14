@@ -1,7 +1,9 @@
 package com.example.projemanag.activities
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.view.GravityCompat
@@ -15,6 +17,10 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    companion object{
+        const val MY_PROFILE_REQUEST_CODE=11
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,6 +33,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private fun SetUpActionBar() {
         setSupportActionBar(toolbar_main_activity)
         toolbar_main_activity.setNavigationIcon(R.drawable.ic_action_navigation_menu)
+        val actionBar=supportActionBar
+        if (actionBar != null) {
+            actionBar.title=("Pepper")
+        }
         toolbar_main_activity.setNavigationOnClickListener {
             toggleDrawer()
         }
@@ -61,7 +71,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun onNavigationItemSelected(item: MenuItem):Boolean {
         when(item.itemId) {
             R.id.nav_my_profile -> {
-               startActivity(Intent(this, MyProfileActivity::class.java))
+               startActivityForResult(Intent(this, MyProfileActivity::class.java),
+                   MY_PROFILE_REQUEST_CODE)
             }
             R.id.nav_sign_out ->{
                 FirebaseAuth.getInstance().signOut()
@@ -76,5 +87,15 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         return true
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == Activity.RESULT_OK
+            && requestCode == MY_PROFILE_REQUEST_CODE
+        ){
+            FirestoreClass().loadUserData(this)
+        }else{
+            Log.e("Cancelled", "Cancelled")
+        }
+    }
 
 }

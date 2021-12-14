@@ -1,18 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:layout_margin="5dp"
+        android:alignmentMode="alignMargins"
+        android:layout_gravity="center_horizontal"
+        android:columnOrderPreserved="false"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="5dp"
+            app:cardBackgroundColor="#767878"
+            android:layout_margin="10dp"
+            android:layout_marginTop="100dp"
+            >
+            <Button
+                android:id="@+id/btn_rest"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@null"
+
+                />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                app:lottie_rawRes="@raw/rest2"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true">
+
+            </com.airbnb.lottie.LottieAnimationView>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="5dp"
+            app:cardBackgroundColor="#767878"
+            android:layout_margin="10dp"
+            android:layout_marginTop="100dp"
+            >
+            <Button
+                android:id="@+id/btn_shopping"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@null"
+                />
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                app:lottie_rawRes="@raw/kart"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true">
+
+            </com.airbnb.lottie.LottieAnimationView>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="5dp"
+            app:cardBackgroundColor="#767878"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            >
+            <Button
+                android:id="@+id/btn_hotel"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@null"
+                />
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                app:lottie_rawRes="@raw/hotel"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true">
+
+            </com.airbnb.lottie.LottieAnimationView>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="5dp"
+            app:cardBackgroundColor="#767878"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            >
+            <Button
+                android:id="@+id/btn_travel"
+                android:background="@null"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                />
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                app:lottie_rawRes="@raw/travel"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true">
+
+            </com.airbnb.lottie.LottieAnimationView>
+
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+</LinearLayout>
+
+
+
+</ScrollView>
