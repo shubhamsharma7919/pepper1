@@ -4,23 +4,29 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/drawable/ic_action_navigation_menu.xml" value="0.2203125" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/drawable/ic_location_24dp.xml" value="0.2128205128205128" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/drawable/ic_nav_sign_out.xml" value="0.2203125" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/drawable/ic_nav_user.xml" value="0.2203125" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/drawable/nav_selector.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/drawable/shape_button_rounded.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/drawable/shqap_button_rounded.xml" value="0.1125" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/drawable/whte_border_shape_rounded.xml" value="0.2203125" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/activity_base.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/activity_intro.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/activity_maps.xml" value="0.2" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/activity_my_profile.xml" value="0.3475409836065574" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/activity_sign_in.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/activity_view_directions.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/activity_view_place.xml" value="0.17" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/app_bar_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/dialog_progress.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/main_content.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/layout/nav_header_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/menu/activity_main_drawer.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Projemanag/app/src/main/res/menu/bottom_menu.xml" value="0.2" />
       </map>
     </option>
   </component>

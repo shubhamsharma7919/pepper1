@@ -8,12 +8,14 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import com.bumptech.glide.Glide
+import com.example.projemanag.MapsActivity
 import com.example.projemanag.R
 import com.example.projemanag.firebase.FirestoreClass
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.main_content.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -28,7 +30,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         nav_view.setNavigationItemSelectedListener(this)
 
         FirestoreClass().loadUserData(this)
+
+        btn_location.setOnClickListener {
+            startActivity(Intent(this, MapsActivity::class.java))
+        }
     }
+
+
 
     private fun SetUpActionBar() {
         setSupportActionBar(toolbar_main_activity)
@@ -97,5 +105,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             Log.e("Cancelled", "Cancelled")
         }
     }
+
 
 }

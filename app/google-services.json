@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "800178060093",
-    "project_id": "projemanag-199a2",
-    "storage_bucket": "projemanag-199a2.appspot.com"
+    "project_number": "552910972577",
+    "project_id": "projectmanag1-9da1e",
+    "storage_bucket": "projectmanag1-9da1e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:800178060093:android:8112176e0f14cb1a166354",
+        "mobilesdk_app_id": "1:552910972577:android:7f82ef41c3f781fc9fb2e0",
         "android_client_info": {
           "package_name": "com.example.projemanag"
         }
       },
       "oauth_client": [
         {
-          "client_id": "800178060093-r3dme3j5u3hnc3d3a4tg78pq3nk0nklr.apps.googleusercontent.com",
+          "client_id": "552910972577-cjf0s43hconptqm9h3mgo77j8nomom5m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDkBX_Qk0fVRukycgM7AoB83PuI-7TX69I"
+          "current_key": "AIzaSyDNFtnfek22Mv1LgwZ6KSxF4uWM-ZloVEY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "800178060093-r3dme3j5u3hnc3d3a4tg78pq3nk0nklr.apps.googleusercontent.com",
+              "client_id": "552910972577-cjf0s43hconptqm9h3mgo77j8nomom5m.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
